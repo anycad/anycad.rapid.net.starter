@@ -29,7 +29,7 @@ namespace WpfStarter
         private void mRenderCtrl_ViewerReady()
         {
             var shape = ShapeBuilder.MakeCylinder(GP.XOY(), 10, 20, 0);
-            mRenderCtrl.View3D.ShowShape(shape, ColorTable.AliceBlue);
+            mRenderCtrl.ShowShape(shape, ColorTable.AliceBlue);
         }
     }
 }
