@@ -13,3 +13,8 @@
   - VB.WinForms.NET6
 - Console 控制台应用
   - Console.NET6
+
+## .NET 4
+- 在VS2010下使用
+  - WinForms.NET4.VS2010
+  
