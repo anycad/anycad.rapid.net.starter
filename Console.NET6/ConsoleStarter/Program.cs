@@ -3,16 +3,17 @@
 using AnyCAD.Foundation;
 
 GlobalInstance.Initialize();
+var app = Application.Instance();
 
-WindowCanvas canvas = new WindowCanvas("AnyCAD", true);
-canvas.Initialize(0, 600, 400);
+var window3d = app.CreateWindow3D("AnyCAD", 1024, 768, true);
 
 var box = ShapeBuilder.MakeBox(GP.XOY(), 10, 20, 30);
 var node = BrepSceneNode.Create(box, null, null, 0.01);
-var scene = canvas.GetContext().GetScene();
+var scene = window3d.GetContext().GetScene();
 scene.AddNode(node);
-canvas.Run();
 
-canvas.Destroy();
+window3d.Run(null);
+
+window3d.Destroy();
 
 GlobalInstance.Destroy();
