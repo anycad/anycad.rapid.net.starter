@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +22,16 @@ namespace WpfStarter
     /// </summary>
     public partial class MainWindow : Window
     {
+        ObservableCollection<TreeModel> mModel;
         public MainWindow()
         {
             InitializeComponent();
+            mModel = TreeModel.GetData();
+            mTreeCtrl.ItemsSource = mModel;
+            var item = mModel.First().Children.First();           
+            TreeModel.ExpandParentNodes(item);
+            item.IsSelected = true;
+            
         }
 
         private void mRenderCtrl_ViewerReady()
