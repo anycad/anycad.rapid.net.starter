@@ -14,9 +14,11 @@ namespace WinForms.NET4
         [STAThread]
         static void Main()
         {
+            AnyCAD.Foundation.GlobalInstance.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            AnyCAD.Foundation.GlobalInstance.Destroy();
         }
     }
 }
