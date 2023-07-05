@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -17,6 +18,8 @@ namespace MyApp
     {
         private void Application_Startup(object sender, StartupEventArgs e)
         {
+            AlgoManager.Initialize();
+
             string path = AppDomain.CurrentDomain.BaseDirectory;
             string arch = "x86";
             if(Environment.Is64BitProcess)
@@ -25,19 +28,26 @@ namespace MyApp
             }
             var asmfile = System.IO.Path.Combine(path, String.Format("runtimes/win-{0}/native/MyLibraryCLR.dll", arch));
 
-            var asm = Assembly.LoadFile(asmfile);
-            var types = asm.GetExportedTypes();
-            foreach (Type type in types)
+            try
             {
-                if (type.GetInterface("IPlugin") != null)
+                var asm = Assembly.LoadFile(asmfile);
+                var types = asm.GetExportedTypes();
+                foreach (Type type in types)
                 {
-                    var obj = Activator.CreateInstance(type);
-                    if (obj != null)
+                    if (type.GetInterface("IPlugin") != null)
                     {
-                        var plugin = (IPlugin)obj;
-                        plugin.Initialize();
+                        var obj = Activator.CreateInstance(type);
+                        if (obj != null)
+                        {
+                            var plugin = (IPlugin)obj;
+                            plugin.Initialize();
+                        }
                     }
                 }
+            }
+            catch(Exception ex)
+            {
+                Debug.Write(ex.Message);
             }
         }
     }

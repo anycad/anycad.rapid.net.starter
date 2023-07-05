@@ -3,9 +3,8 @@
 using AnyCAD.Foundation;
 
 GlobalInstance.Initialize();
-var app = Application.Instance();
 
-var window3d = app.CreateWindow3D("AnyCAD", 1024, 768, true);
+var window3d = RenderingEngine.CreateWindow3D("AnyCAD", 1024, 768, true);
 
 var box = ShapeBuilder.MakeBox(GP.XOY(), 10, 20, 30);
 var node = BrepSceneNode.Create(box, null, null, 0.01);
