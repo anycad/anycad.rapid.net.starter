@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>AnyCAD-red</title>
+    <g id="AnyCAD-red" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="矩形" fill="#C01900" x="0" y="0" width="48" height="48"></rect>
+        <path d="M32,3 L32,3.001 L45,33 L21.251,33 L16.9512195,45 L3,45 L18,3 L32,3 Z M30.517,7.138 L22.326,30 L40.38,30 L30.517,7.138 Z" id="形状结合" fill="#FFFFFF"></path>
+    </g>
+</svg>

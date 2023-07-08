@@ -9,10 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AnyCAD.Rapid.Net" Version="2023.7.1.1004" />
-    <PackageReference Include="Dirkster.AvalonDock" Version="4.60.1" />
-    <PackageReference Include="Dirkster.AvalonDock.Themes.VS2013" Version="4.60.1" />
-    <PackageReference Include="Fluent.Ribbon" Version="9.0.3" />
+    <None Remove="Images\logo.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AnyCAD.Rapid.Net" Version="2023.7.6.1626" />
+    <PackageReference Include="Dirkster.AvalonDock" Version="4.72.0" />
+    <PackageReference Include="Dirkster.AvalonDock.Themes.VS2013" Version="4.72.0" />
+    <PackageReference Include="Fluent.Ribbon" Version="10.0.0" />
+    <PackageReference Include="SharpVectors" Version="1.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\logo.svg" />
   </ItemGroup>
 
 </Project>

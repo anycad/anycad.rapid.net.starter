@@ -6,6 +6,7 @@
         xmlns:ad="https://github.com/Dirkster99/AvalonDock"  
         xmlns:anycad="clr-namespace:AnyCAD.WPF;assembly=AnyCAD.WPF.NET6"
         xmlns:local="clr-namespace:RapidUI"
+        xmlns:svgc = "http://sharpvectors.codeplex.com/svgc/"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Loaded="RibbonWindow_Loaded">
     <Grid>
@@ -19,7 +20,11 @@
             <!--Tabs-->
             <Fluent:RibbonTabItem Header="建模">
                 <Fluent:RibbonGroupBox Header="基本体" IsLauncherVisible="False">
-                    <Fluent:Button Header="球"/>
+                    <Fluent:Button Header="球">
+                        <Fluent:Button.Icon>
+                            <svgc:SvgViewbox Source="Images/logo.svg"/>
+                        </Fluent:Button.Icon>
+                    </Fluent:Button>
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
         </Fluent:Ribbon>
