@@ -1,0 +1,81 @@
+﻿<prism:PrismApplication x:Class="PrismCAD.App"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:local="clr-namespace:PrismCAD"
+                        xmlns:prism="http://prismlibrary.com/"
+                        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                        Startup="Application_Startup"
+                        Exit="Application_Exit">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light"
+                                             PrimaryColor="DeepPurple"
+                                             SecondaryColor="Lime" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <!--主题颜色的资源-->
+            <Style TargetType="ListBoxItem"
+                   x:Key="MyListBoxItemStyle">
+                <Setter Property="MinHeight"
+                        Value="40" />
+                <Setter  Property="Background"
+                         Value="{DynamicResource PrimaryHueLightBrush}" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                            <Grid>
+                                <Border x:Name="borderHeader" />
+                                <Border x:Name="border" />
+                                <ContentPresenter  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsSelected"
+                                         Value="True">
+                                    <Setter Property="BorderThickness"
+                                            TargetName="borderHeader"
+                                            Value="6,0,0,0" />
+                                    <Setter  Property="BorderBrush"
+                                             TargetName="borderHeader"
+                                             Value="{DynamicResource PrimaryHueLightBrush}" />
+                                    <Setter  TargetName="border"
+                                             Property="Background"
+                                             Value="{DynamicResource PrimaryHueLightBrush}" />
+                                    <Setter  TargetName="border"
+                                             Property="Opacity"
+                                             Value="0.2" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver"
+                                         Value="True">
+                                    <Setter  TargetName="border"
+                                             Property="Background"
+                                             Value="{DynamicResource PrimaryHueLightBrush}" />
+                                    <Setter  TargetName="border"
+                                             Property="Opacity"
+                                             Value="0.2" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="Border"
+                   x:Key="MyBorder1">
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver"
+                             Value="True">
+                        <Setter Property="Effect">
+                            <Setter.Value>
+                                <DropShadowEffect BlurRadius="10"
+                                                  ShadowDepth="1"
+                                                  Color="#DDDDDD" />
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</prism:PrismApplication>
