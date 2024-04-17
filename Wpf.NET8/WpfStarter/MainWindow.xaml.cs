@@ -27,5 +27,12 @@ namespace WpfStarter
             var shape = ShapeBuilder.MakeCylinder(GP.XOY(), 10, 20, 0);
             mRenderCtrl.ShowShape(shape, ColorTable.AliceBlue);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PrevewWindow window = new PrevewWindow();
+            window.Owner = this;
+            window.Show();
+        }
     }
 }

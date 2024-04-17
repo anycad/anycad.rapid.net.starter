@@ -13,19 +13,24 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <anycad:RenderControl Grid.Column="1" x:Name="mRenderCtrl" Margin="0,0,0,0" ViewerReady="mRenderCtrl_ViewerReady" />
+        <StackPanel Grid.Column="0" >
+            <StackPanel>
+                <Button Content="Preview" Click="Button_Click"></Button>
+            </StackPanel>
+             <TreeView x:Name="mTreeCtrl" ItemsSource="{Binding ItemsSource}" Margin="3">
+                <TreeView.Resources>
+                    <HierarchicalDataTemplate DataType="{x:Type local:TreeModel}" ItemsSource="{Binding Children}">
+                        <TextBlock Text="{Binding Path=DisplayText}" />
+                    </HierarchicalDataTemplate>
+                </TreeView.Resources>
+                <TreeView.ItemContainerStyle>
+                    <Style TargetType="TreeViewItem">
+                        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                        <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                    </Style>
+                </TreeView.ItemContainerStyle>
+            </TreeView>           
+        </StackPanel>
 
-        <TreeView Grid.Column="0" x:Name="mTreeCtrl" ItemsSource="{Binding ItemsSource}" Margin="3">
-            <TreeView.Resources>
-                <HierarchicalDataTemplate DataType="{x:Type local:TreeModel}" ItemsSource="{Binding Children}">
-                    <TextBlock Text="{Binding Path=DisplayText}" />
-                </HierarchicalDataTemplate>
-            </TreeView.Resources>
-            <TreeView.ItemContainerStyle>
-                <Style TargetType="TreeViewItem">
-                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
-                    <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
-                </Style>
-            </TreeView.ItemContainerStyle>
-        </TreeView>
     </Grid>
 </Window>
